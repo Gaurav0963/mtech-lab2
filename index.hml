@@ -69,8 +69,6 @@
             <p class="text-lg text-gray-600 mt-2">Test your knowledge with these fundamental questions.</p>
         </header>
 
-
-
         <!-- Python Fundamentals Section -->
         <section class="mb-12">
             <h2 class="text-3xl font-semibold border-b-2 border-blue-500 pb-2 mb-6 text-gray-800">Part 1: Python Fundamentals</h2>
@@ -149,7 +147,7 @@ for n in numbers:
         </section>
 
 
-                <!-- Dataset Info Section -->
+        <!-- Dataset Info Section -->
         <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
             <div class="border-b border-gray-200">
                 <nav class="-mb-px flex space-x-6" aria-label="Tabs">
@@ -341,6 +339,13 @@ display(df.head())
             </div>
         </section>
 
+        <!-- Solution Button Section -->
+        <section class="text-center mt-12">
+            <a href="./labsolu.html" class="bg-green-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-green-600 transition-colors shadow-lg">
+                View Solutions
+            </a>
+        </section>
+
     </div>
 
     <script>
@@ -349,21 +354,21 @@ display(df.head())
         const tabBtnAbout = document.getElementById('tab-btn-about');
         const tabContentCode = document.getElementById('tab-content-code');
         const tabContentAbout = document.getElementById('tab-content-about');
+        const allTabs = document.querySelectorAll('#tab-content-code, #tab-content-about');
+        const allTabButtons = document.querySelectorAll('#tab-btn-code, #tab-btn-about');
 
-        tabBtnCode.addEventListener('click', () => {
-            tabBtnCode.classList.add('active');
-            tabBtnAbout.classList.remove('active');
-            tabContentCode.classList.add('active');
-            tabContentAbout.classList.remove('active');
-        });
+        // Function to handle tab switching
+        function switchTabs(activeBtn, activeContent) {
+            allTabButtons.forEach(btn => btn.classList.remove('active'));
+            allTabs.forEach(content => content.classList.remove('active'));
+            activeBtn.classList.add('active');
+            activeContent.classList.add('active');
+        }
 
-        tabBtnAbout.addEventListener('click', () => {
-            tabBtnAbout.classList.add('active');
-            tabBtnCode.classList.remove('active');
-            tabContentAbout.classList.add('active');
-            tabContentCode.classList.remove('active');
-        });
-
+        // Event listeners for the first set of tabs
+        tabBtnCode.addEventListener('click', () => switchTabs(tabBtnCode, tabContentCode));
+        tabBtnAbout.addEventListener('click', () => switchTabs(tabBtnAbout, tabContentAbout));
+        
         // Copy individual code cell functionality
         const allCopyButtons = document.querySelectorAll('.copy-cell-btn');
 

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python & Titanic EDA Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .question-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .code-block {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            color: #374151; /* text-gray-700 */
+            padding: 0.75rem; /* p-3 */
+            border-radius: 0.375rem; /* rounded-md */
+            margin-top: 0.5rem; /* mt-2 */
+            white-space: pre-wrap;
+            word-break: break-all;
+            position: relative; /* For positioning the copy button */
+        }
+        /* Style for the smaller pip install cell */
+        .pip-install-cell {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .tab-button.active {
+            border-color: #3b82f6; /* border-blue-500 */
+            color: #3b82f6; /* text-blue-500 */
+            background-color: #eff6ff; /* bg-blue-50 */
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .copy-cell-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: #6b7280; /* bg-gray-500 */
+            color: white;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            border-radius: 0.25rem;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+            cursor: pointer;
+        }
+        .code-block:hover .copy-cell-btn {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-gray-900">Python & EDA Skill Test</h1>
+            <p class="text-lg text-gray-600 mt-2">Test your knowledge with these fundamental questions.</p>
+        </header>
+
+
+
+        <!-- Python Fundamentals Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold border-b-2 border-blue-500 pb-2 mb-6 text-gray-800">Part 1: Python Fundamentals</h2>
+            <div class="space-y-6">
+                <!-- Question 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">1. Write a single line of code using `map` and a `lambda` function to return a new list with each number squared.</p>
+                    <div class="code-block"><strong>Input:</strong><pre><code>numbers = [1, 2, 3, 4, 5]</code></pre></div>
+                    <div class="code-block"><strong>Expected Output:</strong><pre><code>[1, 4, 9, 16, 25]</code></pre></div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">2. Use the `filter` function and a `lambda` to create a list of only the even numbers.</p>
+                    <div class="code-block"><strong>Input:</strong><pre><code>numbers = [1, 2, 3, 4, 5, 6]</code></pre></div>
+                    <div class="code-block"><strong>Expected Output:</strong><pre><code>[2, 4, 6]</code></pre></div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">3. What will be the output of the following code?</p>
+                    <div class="code-block"><strong>Code:</strong><button class="copy-cell-btn">Copy</button><pre><code>my_list = [10, 20, 30]
+x = lambda a : a + 10
+print(list(map(x, my_list)))</code></pre></div>
+                    <div class="code-block"><strong>Expected Output:</strong><pre><code>[20, 30, 40]</code></pre></div>
+                    <p class="font-semibold text-md mt-4">After answering, create a similar coding question that uses `map` to take a list of strings and return a list of their lengths.</p>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">4. Rewrite the following code using a list comprehension:</p>
+                    <div class="code-block"><strong>Input Code:</strong><button class="copy-cell-btn">Copy</button><pre><code>numbers = [1, 2, 3, 4]
+squared = []
+for n in numbers:
+    squared.append(n**2)</code></pre></div>
+                    <div class="code-block"><strong>Expected Output:</strong><pre><code>[1, 4, 9, 16]</code></pre></div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">5. How would you sort the following list of dictionaries based on the 'age' of each person in ascending order?</p>
+                    <div class="code-block"><strong>Input:</strong><pre><code>people = [{'name': 'Alice', 'age': 30}, {'name': 'Bob', 'age': 25}]</code></pre></div>
+                    <div class="code-block"><strong>Expected Output:</strong><pre><code>[{'name': 'Bob', 'age': 25}, {'name': 'Alice', 'age': 30}]</code></pre></div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">6. What is the primary difference between the `map` and `filter` functions?</p>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">7. Create a `lambda` function that accepts two arguments and returns their sum. Assign it to a variable `adder` and show how to call it.</p>
+                     <div class="code-block"><strong>Example Call:</strong><button class="copy-cell-btn">Copy</button><pre><code>adder(5, 10)</code></pre></div>
+                     <div class="code-block"><strong>Expected Output:</strong><pre><code>15</code></pre></div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">8. Use a list comprehension to create a list of all numbers from 1 to 50 that are divisible by 3.</p>
+                     <div class="code-block"><strong>Expected Output (first few elements):</strong><pre><code>[3, 6, 9, 12, ...]</code></pre></div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">9. What does a `lambda` function return?</p>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">10. Given a list of strings, use `filter` to return only the strings that have more than 5 characters.</p>
+                    <div class="code-block"><strong>Input:</strong><pre><code>words = ['apple', 'banana', 'cherry', 'date', 'elderberry']</code></pre></div>
+                    <div class="code-block"><strong>Expected Output:</strong><pre><code>['banana', 'cherry', 'elderberry']</code></pre></div>
+                </div>
+            </div>
+        </section>
+
+
+                <!-- Dataset Info Section -->
+        <section class="mb-12 bg-white p-6 rounded-lg shadow-md">
+            <div class="border-b border-gray-200">
+                <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                    <button id="tab-btn-code" class="tab-button active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">
+                        Get Dataset Code
+                    </button>
+                    <button id="tab-btn-about" class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                        About the Dataset
+                    </button>
+                </nav>
+            </div>
+            <div class="py-4">
+                <!-- Tab Content for Code -->
+                <div id="tab-content-code" class="tab-content active">
+                     <p class="text-gray-600 mb-4">Use the following Python code to download the Titanic dataset. If you are running this in a local environment, you may need to install `kagglehub` first.</p>
+                    <div class="code-block pip-install-cell">
+                        <button class="copy-cell-btn">Copy</button>
+                        <pre><code>!pip install kagglehub</code></pre>
+                    </div>
+                    <div class="code-block bg-gray-800 text-white mt-4">
+                        <button class="copy-cell-btn">Copy</button>
+<pre><code>
+import kagglehub
+import pandas as pd
+import os
+
+# Download the latest version of the dataset
+path = kagglehub.dataset_download("sidrakousar/titanic-dataset")
+
+print("Path to dataset files:", path)
+
+# Define the full path to the csv file
+csv_file_path = os.path.join(path, 'titanic.csv')
+
+# Read the dataset into a pandas DataFrame
+df = pd.read_csv(csv_file_path)
+
+# Display the first 5 rows of the DataFrame
+display(df.head())
+</code></pre>
+                    </div>
+                </div>
+                <!-- Tab Content for About -->
+                <div id="tab-content-about" class="tab-content">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">About the Titanic Dataset</h3>
+                    <p class="text-gray-600 mb-4">
+                        The sinking of the Titanic is one of the most infamous shipwrecks in history. This dataset provides data on the passengers aboard the Titanic, which sank after colliding with an iceberg. It is often used as a starting point for machine learning, particularly for practicing binary classification to predict which passengers survived.
+                    </p>
+                    <h4 class="text-lg font-semibold text-gray-700 mt-4 mb-2">Column Descriptions:</h4>
+                    <ul class="list-disc list-inside space-y-2 text-gray-600">
+                        <li><strong>PassengerId:</strong> A unique identifier for each passenger.</li>
+                        <li><strong>Survived:</strong> Indicates if the passenger survived. (0 = No, 1 = Yes)</li>
+                        <li><strong>Pclass:</strong> Passenger class. (1 = 1st, 2 = 2nd, 3 = 3rd)</li>
+                        <li><strong>Name:</strong> The name of the passenger.</li>
+                        <li><strong>Sex:</strong> The gender of the passenger.</li>
+                        <li><strong>Age:</strong> The age of the passenger in years.</li>
+                        <li><strong>SibSp:</strong> The number of siblings or spouses the passenger had aboard the Titanic.</li>
+                        <li><strong>Parch:</strong> The number of parents or children the passenger had aboard the Titanic.</li>
+                        <li><strong>Ticket:</strong> The ticket number.</li>
+                        <li><strong>Fare:</strong> The fare paid for the ticket.</li>
+                        <li><strong>Cabin:</strong> The cabin number where the passenger stayed.</li>
+                        <li><strong>Embarked:</strong> The port where the passenger embarked. (C = Cherbourg, Q = Queenstown, S = Southampton)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Preview Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-semibold border-b-2 border-yellow-500 pb-2 mb-6 text-gray-800">Data Preview</h2>
+            <p class="text-gray-600 mb-4">Here's a look at the first 5 rows of the Titanic dataset. You should see this after running the code in the 'Get Dataset Code' tab.</p>
+            <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+                <table class="min-w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">PassengerId</th>
+                            <th scope="col" class="py-3 px-6">Survived</th>
+                            <th scope="col" class="py-3 px-6">Pclass</th>
+                            <th scope="col" class="py-3 px-6">Name</th>
+                            <th scope="col" class="py-3 px-6">Sex</th>
+                            <th scope="col" class="py-3 px-6">Age</th>
+                            <th scope="col" class="py-3 px-6">SibSp</th>
+                            <th scope="col" class="py-3 px-6">Parch</th>
+                            <th scope="col" class="py-3 px-6">Fare</th>
+                            <th scope="col" class="py-3 px-6">Embarked</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">3</td>
+                            <td class="py-4 px-6">Braund, Mr. Owen Harris</td>
+                            <td class="py-4 px-6">male</td>
+                            <td class="py-4 px-6">22.0</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">7.25</td>
+                            <td class="py-4 px-6">S</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b">
+                            <td class="py-4 px-6">2</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">Cumings, Mrs. John Bradley (Florence Briggs Thayer)</td>
+                            <td class="py-4 px-6">female</td>
+                            <td class="py-4 px-6">38.0</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">71.2833</td>
+                            <td class="py-4 px-6">C</td>
+                        </tr>
+                        <tr class="bg-white border-b">
+                            <td class="py-4 px-6">3</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">3</td>
+                            <td class="py-4 px-6">Heikkinen, Miss. Laina</td>
+                            <td class="py-4 px-6">female</td>
+                            <td class="py-4 px-6">26.0</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">7.925</td>
+                            <td class="py-4 px-6">S</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b">
+                            <td class="py-4 px-6">4</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+                            <td class="py-4 px-6">female</td>
+                            <td class="py-4 px-6">35.0</td>
+                            <td class="py-4 px-6">1</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">53.1</td>
+                            <td class="py-4 px-6">S</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="py-4 px-6">5</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">3</td>
+                            <td class="py-4 px-6">Allen, Mr. William Henry</td>
+                            <td class="py-4 px-6">male</td>
+                            <td class="py-4 px-6">35.0</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">0</td>
+                            <td class="py-4 px-6">8.05</td>
+                            <td class="py-4 px-6">S</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Titanic EDA Section -->
+        <section>
+            <h2 class="text-3xl font-semibold border-b-2 border-green-500 pb-2 mb-6 text-gray-800">Part 2: EDA on Titanic Dataset</h2>
+            <div class="space-y-6">
+                <!-- All 10 EDA questions follow the same structure -->
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">1. Using Pandas, how would you load the `titanic.csv` dataset into a DataFrame called `df`?</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">2. How do you display the first 5 rows of the DataFrame?</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">3. Write the code to check for the total number of missing values in each column of the DataFrame.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">4. How would you find the survival rate of passengers? (i.e., the percentage of passengers who survived).</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">5. Using Matplotlib or Seaborn, create a bar chart to visualize the number of passengers in each passenger class (`Pclass`).</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">6. Create a histogram to show the distribution of passenger ages (`Age`).</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">7. How would you calculate the survival rate for male vs. female passengers? Which group had a higher survival rate?</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">8. Create a pivot table or a grouped bar chart to show the survival rate based on both `Sex` and `Pclass`.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">9. The 'Age' column has missing values. Describe one common strategy to fill these missing values and write the code to implement it.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md question-card">
+                    <p class="font-semibold text-lg mb-2">10. How would you create a new column called `FamilySize` which is the sum of `SibSp` (siblings/spouses) and `Parch` (parents/children) plus 1 (for the passenger themselves)?</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Tab functionality
+        const tabBtnCode = document.getElementById('tab-btn-code');
+        const tabBtnAbout = document.getElementById('tab-btn-about');
+        const tabContentCode = document.getElementById('tab-content-code');
+        const tabContentAbout = document.getElementById('tab-content-about');
+
+        tabBtnCode.addEventListener('click', () => {
+            tabBtnCode.classList.add('active');
+            tabBtnAbout.classList.remove('active');
+            tabContentCode.classList.add('active');
+            tabContentAbout.classList.remove('active');
+        });
+
+        tabBtnAbout.addEventListener('click', () => {
+            tabBtnAbout.classList.add('active');
+            tabBtnCode.classList.remove('active');
+            tabContentAbout.classList.add('active');
+            tabContentCode.classList.remove('active');
+        });
+
+        // Copy individual code cell functionality
+        const allCopyButtons = document.querySelectorAll('.copy-cell-btn');
+
+        allCopyButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const codeBlock = event.target.parentElement;
+                const preElement = codeBlock.querySelector('pre');
+                
+                if (preElement) {
+                    const codeToCopy = preElement.innerText;
+                    
+                    const textArea = document.createElement('textarea');
+                    textArea.value = codeToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+
+                    // Provide user feedback
+                    const originalText = button.innerText;
+                    button.innerText = 'Copied!';
+                    button.style.backgroundColor = '#10B981'; // green-500
+
+                    setTimeout(() => {
+                        button.innerText = "Copy";
+                        button.style.backgroundColor = '#6B7280'; // gray-500
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
